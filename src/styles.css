@@ -1,0 +1,59 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin-top: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  height: 92%;
+  background: linear-gradient(to right, #2c3e50, #4ca1af);
+}
+h1 {
+  color: #ffffff;
+  display: block;
+  margin: 15px 60px;
+  text-align: center;
+  padding: 10px;
+  font-family: "Orbitron";
+  border-radius: 2px;
+}
+
+h4,
+h5 {
+  font-weight: 600;
+  font-family: "roboto";
+  font-size: 14px;
+  margin: 0;
+}
+
+form {
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.city,
+.temp,
+.precip {
+  font-weight: 600;
+  font-family: "roboto";
+}
+
+.card-current,
+.row {
+  margin: 0 auto;
+}
+
+.col {
+  text-align: center;
+  background-color: white;
+  border: 2px solid;
+  border-color: whitesmoke;
+}
+
+p {
+  font-size: 12px;
+}
