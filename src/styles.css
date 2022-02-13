@@ -57,3 +57,13 @@ form {
 p {
   font-size: 12px;
 }
+
+.git-rep {
+  color: white;
+  display: block;
+  text-align: center;
+}
+
+.git-rep:hover {
+  color: whitesmoke;
+}
