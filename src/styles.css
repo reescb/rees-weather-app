@@ -3,10 +3,8 @@ html {
 }
 
 body {
-  margin-top: 25px;
-  margin-left: 25px;
-  margin-right: 25px;
-  margin-bottom: 25px;
+  margin: 25px;
+  padding: 30px;
   height: 92%;
   background: linear-gradient(to right, #2c3e50, #4ca1af);
 }
@@ -45,9 +43,11 @@ form {
 .card-current,
 .row {
   margin: 0 auto;
+  border-radius: 5%;
 }
 
 .col {
+  padding: 10px;
   text-align: center;
   background-color: white;
   border: 2px solid;
