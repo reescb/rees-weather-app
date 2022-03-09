@@ -7,7 +7,7 @@ function formatDate(date) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let dayIndex = date.getDay();
+  let dayIndex = date.getUTCDay() - 1;
   let days = [
     "Monday",
     "Tuesday",
@@ -20,10 +20,10 @@ function formatDate(date) {
 
   return `${days[dayIndex]} ${hours}:${minutes}`;
 }
-let currentTime = new Date();
+let date = new Date();
 
 let dateElement = document.querySelector("#update-date");
-dateElement.innerHTML = formatDate(currentTime);
+dateElement.innerHTML = formatDate(date);
 
 //City search result
 
