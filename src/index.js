@@ -25,7 +25,7 @@ let date = new Date();
 let dateElement = document.querySelector("#update-date");
 dateElement.innerHTML = formatDate(date);
 
-//City search result
+//display weather
 
 function displayWeather(response) {
   document.querySelector("#currentCity").innerHTML = response.data.name;
@@ -40,14 +40,23 @@ function displayWeather(response) {
 
 function showSearchValue(event) {
   event.preventDefault();
-  let apiKey = "f0b1594042f8bed99c56223ceb9a1125";
   let units = "metric";
   let city = document.querySelector("#search-input").value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(displayWeather);
   let searchInput = document.querySelector("#search-input");
   document.getElementById("currentCity").innerHTML = `${searchInput.value}`;
+  let icon = document.querySelector("#icon");
+  icon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
+
+//display position
+
+let apiKey = "f0b1594042f8bed99c56223ceb9a1125";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+axios.get(apiUrl).then(displayWeather);
 
 let searchForm = document.querySelector("form");
 searchForm.addEventListener("submit", showSearchValue);
