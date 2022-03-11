@@ -36,14 +36,6 @@ function displayWeather(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-}
-
-function showSearchValue(event) {
-  event.preventDefault();
-  let units = "metric";
-  let city = document.querySelector("#search-input").value;
-  let searchInput = document.querySelector("#search-input");
-  document.getElementById("currentCity").innerHTML = `${searchInput.value}`;
   let icon = document.querySelector("#icon");
   icon.setAttribute(
     "src",
@@ -52,11 +44,17 @@ function showSearchValue(event) {
   icon.setAttribute("alt", response.data.weather[0].description);
 }
 
-//display position
+function showSearchValue(event) {
+  event.preventDefault();
+  let units = "metric";
+  let searchInput = document.querySelector("#search-input");
+  document.getElementById("currentCity").innerHTML = `${searchInput.value}`;
+  let apiKey = "f0b1594042f8bed99c56223ceb9a1125";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayWeather);
+}
 
-let apiKey = "f0b1594042f8bed99c56223ceb9a1125";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-axios.get(apiUrl).then(displayWeather);
+//display position
 
 let searchForm = document.querySelector("form");
 searchForm.addEventListener("submit", showSearchValue);
