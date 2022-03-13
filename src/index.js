@@ -1,3 +1,5 @@
+//date format
+
 function formatDate(date) {
   let hours = date.getUTCHours();
   if (hours < 10) {
@@ -7,7 +9,7 @@ function formatDate(date) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let dayIndex = date.getUTCDay() - 1;
+  let dayIndex = date.getUTCDay();
   let days = [
     "Monday",
     "Tuesday",
@@ -20,12 +22,8 @@ function formatDate(date) {
 
   return `${days[dayIndex]} ${hours}:${minutes}`;
 }
-let date = new Date();
 
-let dateElement = document.querySelector("#update-date");
-dateElement.innerHTML = formatDate(date);
-
-//display weather
+//display weather position
 
 function displayWeather(response) {
   document.querySelector("#currentCity").innerHTML = response.data.name;
@@ -54,7 +52,14 @@ function showSearchValue(event) {
   axios.get(apiUrl).then(displayWeather);
 }
 
-//display position
+//search form
 
 let searchForm = document.querySelector("form");
 searchForm.addEventListener("submit", showSearchValue);
+
+//date
+
+let date = new Date();
+
+let dateElement = document.querySelector("#update-date");
+dateElement.innerHTML = formatDate(date);
