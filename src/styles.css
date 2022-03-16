@@ -62,3 +62,26 @@ p {
 .git-rep:hover {
   color: whitesmoke;
 }
+
+.weather-forecast {
+  margin-top: 10px;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+  color: black;
+  opacity: 0.6;
+}
+
+.weather-forecast-temperature {
+  padding: 10px;
+  font-size: 13px;
+  color: black;
+}
+
+.weather-temperature-max {
+}
+
+.weather-temperature-min {
+  opacity: 0.6;
+}
