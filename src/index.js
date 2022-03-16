@@ -23,6 +23,38 @@ function formatDate(date) {
   return `${days[dayIndex]} ${hours}:${minutes}`;
 }
 
+//display forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecastHTML =
+    forecastHTML +
+    `
+    <div class="col-1">
+              <div class="weather-forecast-date">Mon</div>
+              <img src="src/images/sun.jpg" alt="" width="38" />
+              <div class="weather-forecast-temperature">
+                <span class="weather-temperature-max">18°C</span>
+                <span class="weather-temperature-min">12°C</span>
+              </div>
+              </div>`;
+  forecastHTML =
+    forecastHTML +
+    `
+    <div class="col-2">    
+              <div class="weather-forecast-date">Tues</div>
+              <img src="src/images/sun.jpg" alt="" width="38" />
+              <div class="weather-forecast-temperature">
+                <span class="weather-temperature-max">18°C</span>
+                <span class="weather-temperature-min">12°C</span>
+              </div>
+              </div>`;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 //display weather position
 
 function displayWeather(response) {
@@ -40,6 +72,8 @@ function displayWeather(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+
+  displayForecast();
 }
 
 function showSearchValue(event) {
