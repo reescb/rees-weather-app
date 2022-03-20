@@ -33,10 +33,12 @@ form {
 }
 
 .card-current,
-.card-body {
+.card-body,
+.row {
   margin: 0 auto;
   border-radius: 5%;
   max-width: 800px;
+  display: block;
 }
 
 .col-1,
@@ -44,9 +46,10 @@ form {
 .col-3,
 .col-4,
 .col-5 {
-  padding: 20px;
+  padding: 20px 20px;
   text-align: center;
   background-color: white;
+  width: 15%;
 }
 
 p {
