@@ -25,15 +25,14 @@ function formatDate(date) {
 
 //display forecast
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
   let days = ["Sun", "Mon", "Tues", "Wed", "Thurs"];
   days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+    forecastHTML = `${forecastHTML}
     <div class="col-1">
               <div class="weather-forecast-date">${day}</div>
               <img src="src/images/sun.jpg" alt="" width="38" />
@@ -48,6 +47,14 @@ function displayForecast() {
 }
 
 //display weather position
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "f0b1594042f8bed99c56223ceb9a1125";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function displayWeather(response) {
   document.querySelector("#currentCity").innerHTML = response.data.name;
@@ -65,7 +72,7 @@ function displayWeather(response) {
   );
   icon.setAttribute("alt", response.data.weather[0].description);
 
-  displayForecast();
+  getForecast(response.data.coord);
 }
 
 function showSearchValue(event) {
