@@ -1,7 +1,7 @@
 //date format
 
 function formatDate(date) {
-  let hours = date.getUTCHours();
+  let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
@@ -9,7 +9,7 @@ function formatDate(date) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let dayIndex = date.getUTCDay();
+  let dayIndex = date.getDay();
   let days = [
     "Monday",
     "Tuesday",
