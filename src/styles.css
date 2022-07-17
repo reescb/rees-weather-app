@@ -32,12 +32,15 @@ form {
   font-family: "roboto";
 }
 
-.card-current,
+.card-current {
+  margin: 0 auto;
+  border-radius: 5%;
+  max-width: 600px;
+}
 .card-body {
   margin: 0 auto;
   border-radius: 5%;
-  max-width: 800px;
-  display: block;
+  max-width: 1000px;
 }
 
 .col-1 {
@@ -46,6 +49,10 @@ form {
   margin: 40px 0;
   display: block;
   width: 100%;
+}
+
+.row {
+  justify-content: center;
 }
 
 p {
@@ -63,7 +70,6 @@ p {
 }
 
 #forecast {
-  padding-left: 150px;
 }
 
 .weather-forecast {

@@ -11,16 +11,16 @@ function formatDate(date) {
   }
   let dayIndex = date.getDay();
   let days = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday",
   ];
 
-  return `${days[dayIndex]} ${hours}:${minutes}`;
+  return `${days[dayIndex - 1]} ${hours}:${minutes}`;
 }
 
 //display forecast
@@ -28,7 +28,7 @@ function formatDate(date) {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[day];
 }
@@ -38,7 +38,7 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  forecast.forEach(function (forecastDay, index) {
+  forecast.forEach((forecastDay, index) => {
     if (index < 5) {
       forecastHTML = `${forecastHTML}
     <div class="col-1">
